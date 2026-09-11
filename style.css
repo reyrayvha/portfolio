@@ -1912,7 +1912,28 @@ button {
     }
 
     .floating-badge {
-        display: none;
+        font-size: 0.75rem;
+        padding: 8px 14px;
+    }
+
+    .badge-ai {
+        left: -15px;
+    }
+
+    .badge-dev {
+        left: -20px;
+    }
+
+    .badge-code {
+        right: -20px;
+    }
+
+    .photo-name {
+        font-size: 1rem;
+    }
+
+    .photo-role {
+        font-size: 0.65rem;
     }
 
     .about-grid {
@@ -1969,6 +1990,38 @@ button {
 
     .visual-card.photo-card {
         max-width: 200px;
+    }
+
+    .photo-overlay {
+        padding: 20px 14px 14px;
+    }
+
+    .photo-name {
+        font-size: 0.85rem;
+    }
+
+    .photo-role {
+        font-size: 0.55rem;
+    }
+
+    .floating-badge {
+        font-size: 0.65rem;
+        padding: 6px 10px;
+    }
+
+    .badge-ai {
+        top: -10px;
+        left: -10px;
+    }
+
+    .badge-dev {
+        bottom: -10px;
+        left: -15px;
+    }
+
+    .badge-code {
+        top: 20px;
+        right: -20px;
     }
 
     .nav-menu {
