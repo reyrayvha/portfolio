@@ -1897,10 +1897,21 @@ button {
 @media (max-width:1024px) {
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 40px;
     }
 
     .hero-visual {
+        display: flex;
+        justify-content: center;
+        order: -1;
+    }
+
+    .visual-card.photo-card {
+        max-width: 260px;
+        aspect-ratio: 3 / 4;
+    }
+
+    .floating-badge {
         display: none;
     }
 
@@ -1954,6 +1965,10 @@ button {
 
     .hero {
         padding: 100px 24px 60px;
+    }
+
+    .visual-card.photo-card {
+        max-width: 200px;
     }
 
     .nav-menu {
