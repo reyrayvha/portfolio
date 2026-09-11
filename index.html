@@ -1,1499 +1,498 @@
-<!DOCTYPE html>
-<html lang="en" style="">
+﻿<!DOCTYPE html>
+<html lang="id" data-theme="light">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio M. Caesar Rayvha Ul Haque — AI Engineer & Software Developer">
+    <title>Caesar Rayvha — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Serif:ital@0;1&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet">
-    <style>
-        @layer base {
-
-            html,
-            body {
-                margin: 0;
-                padding: 0;
-                scroll-behavior: smooth;
-            }
-
-            body {
-                overscroll-behavior: none;
-            }
-
-            main> :first-child {
-                margin-top: 0 !important;
-            }
-
-            main> :last-child {
-                margin-bottom: 0 !important;
-            }
-        }
-
-        /* Scroll margin for fixed header */
-        section[id] {
-            scroll-margin-top: 5rem;
-        }
-
-        ::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Top Scroll progress bar */
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #9d4225 0%, #fd8c68 50%, #9d4225 100%);
-            z-index: 9999;
-            pointer-events: none;
-            transition: width 0.08s ease-out;
-            box-shadow: 0 0 10px rgba(157, 66, 37, 0.45);
-        }
-
-        /* Scroll-Responsive Parallax Background System (GPU Accelerated) */
-        .scroll-bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .parallax-layer {
-            position: absolute;
-            inset: -20% -10%;
-            width: 120%;
-            height: 140%;
-            pointer-events: none;
-            will-change: transform;
-            transform: translate3d(0, 0, 0);
-            backface-visibility: hidden;
-        }
-
-        #bg-particles-canvas {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.9;
-        }
-
-        /* Scroll Reveal Animation Styles (Natural cubic-bezier easing) */
-        /* Line-by-line smooth progressive reveals */
-        .reveal-line,
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-
-        .reveal-line.is-revealed,
-        .reveal-on-scroll.is-revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-fade-left {
-            opacity: 0;
-            transform: translateX(-24px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-
-        .reveal-fade-left.is-revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-fade-right {
-            opacity: 0;
-            transform: translateX(24px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-
-        .reveal-fade-right.is-revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.96) translateY(20px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-
-        .reveal-scale.is-revealed {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-
-        /* Stagger delay classes for cascading line-by-line entrance */
-        .stagger-1 {
-            transition-delay: 70ms;
-        }
-
-        .stagger-2 {
-            transition-delay: 140ms;
-        }
-
-        .stagger-3 {
-            transition-delay: 210ms;
-        }
-
-        .stagger-4 {
-            transition-delay: 280ms;
-        }
-
-        .stagger-5 {
-            transition-delay: 350ms;
-        }
-
-        .stagger-6 {
-            transition-delay: 420ms;
-        }
-
-        .stagger-7 {
-            transition-delay: 490ms;
-        }
-
-        .stagger-8 {
-            transition-delay: 560ms;
-        }
-
-        /* Rich Hover Effects */
-        .hover-elevate {
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
-            will-change: transform, box-shadow;
-        }
-
-        .hover-elevate:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 22px -5px rgba(157, 66, 37, 0.12), 0 4px 6px -2px rgba(28, 28, 24, 0.04);
-        }
-
-        /* Rich Card 3D Lift & Warm Ambient Glow */
-        .hover-elevate-card {
-            position: relative;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.3s ease;
-            will-change: transform, box-shadow;
-            border: 1px solid transparent;
-        }
-
-        .hover-elevate-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 22px 40px -12px rgba(157, 66, 37, 0.12), 0 8px 16px -4px rgba(28, 28, 24, 0.05);
-            border-color: rgba(157, 66, 37, 0.22);
-        }
-
-        /* Interactive Tech Badges */
-        .tech-badge {
-            display: inline-flex;
-            align-items: center;
-            border: 1px solid rgba(199, 199, 192, 0.45);
-            transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.22s ease,
-                color 0.22s ease,
-                border-color 0.22s ease,
-                box-shadow 0.22s ease;
-            cursor: default;
-        }
-
-        .tech-badge:hover {
-            transform: translateY(-2.5px);
-            background-color: #fbf5ee !important;
-            color: #9d4225 !important;
-            border-color: rgba(157, 66, 37, 0.35) !important;
-            box-shadow: 0 4px 14px -2px rgba(157, 66, 37, 0.18);
-        }
-
-        /* Glowing Button Effect */
-        .btn-glow {
-            position: relative;
-            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.25s ease;
-        }
-
-        .btn-glow:hover {
-            transform: translateY(-2px) scale(1.015);
-            box-shadow: 0 12px 28px -5px rgba(157, 66, 37, 0.42);
-        }
-
-        /* Smooth Image Zoom */
-        .img-zoom-container {
-            overflow: hidden;
-        }
-
-        .img-zoom-container img {
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: transform;
-        }
-
-        .hover-elevate-card:hover .img-zoom-container img,
-        .group:hover .img-zoom-container img {
-            transform: scale(1.045);
-        }
-
-        /* Nav link with animated underline */
-        .nav-link {
-            position: relative;
-            transition: color 0.2s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background-color: #9d4225;
-            transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.nav-active::after {
-            width: 100%;
-        }
-
-        .nav-link.nav-active {
-            color: #1c1c18 !important;
-            font-weight: 500;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .reveal-on-scroll,
-            .reveal-fade-left,
-            .reveal-fade-right,
-            .reveal-scale {
-                opacity: 1 !important;
-                transform: none !important;
-                transition: none !important;
-            }
-
-            .parallax-layer {
-                transform: none !important;
-            }
-
-            #bg-particles-canvas {
-                display: none !important;
-            }
-
-            .hover-elevate:hover,
-            .hover-elevate-card:hover,
-            .btn-glow:hover,
-            .tech-badge:hover {
-                transform: none !important;
-            }
-        }
-    </style>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "on-secondary-fixed": "#3a0b00",
-                        "outline": "#767872",
-                        "on-surface": "#1c1c18",
-                        "primary-fixed": "#e5e2e0",
-                        "on-background": "#1c1c18",
-                        "secondary-fixed": "#ffdbd0",
-                        "on-primary-fixed": "#1c1c1a",
-                        "inverse-surface": "#31312c",
-                        "surface-variant": "#e5e2dc",
-                        "on-surface-variant": "#464742",
-                        "surface-tint": "#5f5e5d",
-                        "tertiary-container": "#002113",
-                        "inverse-on-surface": "#f3f0ea",
-                        "surface": "#fcf9f3",
-                        "inverse-primary": "#c9c6c4",
-                        "on-error-container": "#93000a",
-                        "primary-container": "#1c1c1a",
-                        "background": "#fcf9f3",
-                        "primary-fixed-dim": "#c9c6c4",
-                        "secondary-fixed-dim": "#ffb59e",
-                        "surface-container-high": "#ebe8e2",
-                        "on-primary-container": "#858382",
-                        "on-primary": "#ffffff",
-                        "on-primary-fixed-variant": "#474745",
-                        "tertiary": "#000000",
-                        "error-container": "#ffdad6",
-                        "surface-container": "#f0eee7",
-                        "on-tertiary-fixed-variant": "#234f3a",
-                        "surface-dim": "#dcdad4",
-                        "on-secondary-container": "#742508",
-                        "surface-container-low": "#f6f3ed",
-                        "outline-variant": "#c7c7c0",
-                        "surface-container-lowest": "#ffffff",
-                        "on-error": "#ffffff",
-                        "tertiary-fixed": "#bdeed0",
-                        "on-secondary-fixed-variant": "#7e2c10",
-                        "tertiary-fixed-dim": "#a2d1b5",
-                        "secondary-container": "#fd8c68",
-                        "on-tertiary-fixed": "#002113",
-                        "secondary": "#9d4225",
-                        "on-secondary": "#ffffff",
-                        "error": "#ba1a1a",
-                        "surface-container-highest": "#e5e2dc",
-                        "primary": "#000000",
-                        "on-tertiary": "#ffffff",
-                        "surface-bright": "#fcf9f3",
-                        "on-tertiary-container": "#608d75"
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    spacing: {
-                        "gutter-mobile": "1rem",
-                        "gutter-desktop": "2rem",
-                        "space-sm": "0.75rem",
-                        "space-3xl": "6rem",
-                        "space-2xl": "4rem",
-                        "space-2xs": "0.25rem",
-                        "space-lg": "1.5rem",
-                        "space-4xl": "8rem",
-                        "space-xl": "2.5rem",
-                        "container-max": "1180px",
-                        "space-md": "1rem",
-                        "container-prose": "680px",
-                        "space-xs": "0.5rem"
-                    },
-                    fontFamily: {
-                        "headline-md": ["Newsreader"],
-                        "headline-lg-mobile": ["Newsreader"],
-                        "headline-lg": ["Newsreader"],
-                        "body-sm": ["Hanken Grotesk"],
-                        "display-mobile": ["Newsreader"],
-                        "display": ["Newsreader"],
-                        "headline-sm": ["Hanken Grotesk"],
-                        "body-lg": ["Hanken Grotesk"],
-                        "label-caps": ["Hanken Grotesk"],
-                        "code-inline": ["JetBrains Mono"],
-                        "body-md": ["Hanken Grotesk"]
-                    },
-                    fontSize: {
-                        "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
-                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
-                        "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
-                        "display-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
-                        "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "400" }],
-                        "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
-                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
-                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }],
-                        "code-inline": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
-                        "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
-                    }
-                }
-            }
-        };
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body
-    class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed relative overflow-x-hidden">
-    <!-- Top Scroll Progress Bar -->
-    <div id="scroll-progress" aria-hidden="true"></div>
-
-    <!-- Interactive Scroll-Responsive Background System (GPU-Accelerated, Zero Lag) -->
-    <div aria-hidden="true" class="scroll-bg-container">
-        <!-- Deep Ambient Parallax Orbs (Layer 1 - Gentle depth drift) -->
-        <div id="parallax-layer-1" class="parallax-layer">
-            <div class="absolute top-[8%] left-[5%] w-[520px] h-[520px] rounded-full bg-[#f4ebd9]/60 blur-[95px]"></div>
-            <div class="absolute top-[35%] right-[3%] w-[600px] h-[600px] rounded-full bg-[#ffeedd]/55 blur-[105px]">
-            </div>
-            <div class="absolute top-[65%] left-[8%] w-[480px] h-[480px] rounded-full bg-[#faefe4]/55 blur-[95px]">
-            </div>
-            <div class="absolute top-[90%] right-[8%] w-[540px] h-[540px] rounded-full bg-[#f2e9db]/60 blur-[105px]">
-            </div>
-        </div>
-
-        <!-- Mid Parallax Layer (Layer 2 - Floating Accent Orbs & Geometry) -->
-        <div id="parallax-layer-2" class="parallax-layer">
-            <div class="absolute top-[18%] right-[15%] w-[340px] h-[340px] rounded-full bg-[#fd8c68]/15 blur-[85px]">
-            </div>
-            <div class="absolute top-[52%] left-[18%] w-[400px] h-[400px] rounded-full bg-[#fd8c68]/12 blur-[90px]">
-            </div>
-            <div class="absolute top-[78%] right-[22%] w-[320px] h-[320px] rounded-full bg-[#bdeed0]/18 blur-[80px]">
-            </div>
-            <!-- Subtle architectural drafting grid overlay with parallax shift -->
-            <div class="absolute inset-0 opacity-[0.038]"
-                style="background-size: 52px 52px; background-image: linear-gradient(to right, #1c1c18 1px, transparent 1px), linear-gradient(to bottom, #1c1c18 1px, transparent 1px);">
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-dot"></span>reyrayvha<span class="logo-accent">.</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <a href="#contact" class="btn-nav">Let's Talk</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
-
-        <!-- Micro-particle Canvas (Layer 3 - High Performance Floating Stardust reacting to scroll momentum) -->
-        <canvas id="bg-particles-canvas"></canvas>
-    </div>
-    <header
-        class="fixed top-0 left-0 right-0 w-full z-50 bg-surface/85 backdrop-blur-md transition-colors duration-200 border-b border-surface-variant">
-        <div
-            class="h-16 max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between gap-space-md">
-            <div class="flex items-center gap-space-xs shrink-0"><a
-                    class="group inline-flex items-center gap-space-xs text-on-surface hover:text-secondary transition-colors"
-                    data-path="about" href="#"><span
-                        class="font-headline-sm text-headline-sm tracking-tight text-on-surface group-hover:text-secondary"
-                        title="M. Caesar Rayvha Ul Haque">Reyrayvha</span><span
-                        class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span
-                        class="font-label-caps text-label-caps text-on-surface-variant tracking-wider uppercase">Portfolio</span></a>
+    </nav>
+    <section id="hero" class="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge reveal-fade">
+                    <span class="badge-dot"></span>
+                    Available for opportunities
+                </div>
+                <h1 class="hero-title reveal-up">
+                    Crafting<br>
+                    <em class="hero-italic">intelligent</em><br>
+                    <span class="hero-name">experiences.</span>
+                </h1>
+                <p class="hero-desc reveal-up" data-delay="100">
+                    Mahasiswa Teknik Informatika yang passionate dalam membangun sistem cerdas dengan AI dan membuat
+                    produk digital yang berdampak.
+                </p>
+                <div class="hero-tags reveal-up" data-delay="200">
+                    <span class="htag"><i class="fas fa-robot"></i> AI Enthusiast</span>
+                    <span class="htag"><i class="fas fa-code"></i> Software Dev</span>
+                    <span class="htag"><i class="fas fa-brain"></i> ML Enthusiast</span>
+                </div>
+                <div class="hero-cta reveal-up" data-delay="300">
+                    <a href="#projects" class="btn-primary">Lihat Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="#about" class="btn-ghost">About Me</a>
+                </div>
             </div>
-            <div class="flex items-center gap-space-lg">
-                <nav class="hidden md:flex items-center gap-space-lg">
-                    <a class="nav-link nav-active text-on-surface font-body-sm text-body-sm py-space-2xs transition-colors duration-150"
-                        data-path="about" href="#about">About</a>
-                    <a class="nav-link text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm py-space-2xs transition-colors duration-150"
-                        data-path="projects" href="#projects">Projects</a>
-                    <a class="nav-link text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm py-space-2xs transition-colors duration-150"
-                        data-path="skills" href="#skills">Skills</a>
-                    <a class="nav-link text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm py-space-2xs transition-colors duration-150"
-                        data-path="journey" href="#journey">Journey</a>
-                    <a class="nav-link text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm py-space-2xs transition-colors duration-150"
-                        data-path="contact" href="#contact">Contact</a>
-                </nav>
-                <div class="flex items-center gap-space-xs pl-space-xs border-l border-surface-variant"><button
-                        aria-label="Toggle appearance theme"
-                        class="hover-elevate w-9 h-9 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all duration-200 hover:rotate-12"
-                        type="button"><span class="material-symbols-outlined text-[18px]">light_mode</span></button>
-                    <div
-                        class="hover-elevate w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 cursor-pointer shadow-sm">
-                        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+            <div class="hero-visual reveal-scale" data-delay="200">
+                <div class="visual-card main-card photo-card">
+                    <img src="img/foto_rey.jpg" alt="Caesar Rayvha" class="hero-photo">
+                    <div class="photo-overlay">
+                        <span class="photo-name">M. Caesar Rayvha Ul Haque</span>
+                        <span class="photo-role">AI Enthusiast & Software Developer</span>
+                    </div>
+                </div>
+                <div class="floating-badge badge-ai">
+                    <i class="fas fa-microchip"></i><span>AI Enthusiast</span>
+                </div>
+                <div class="floating-badge badge-dev">
+                    <i class="fas fa-dev"></i><span>Fullstack Developer</span>
+                </div>
+                <div class="floating-badge badge-code">
+                    <i class="fas fa-code"></i><span>Software Engineer</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-wheel"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-label reveal-fade">
+                <span class="label-line"></span> About Me
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title reveal-up">
+                        Membangun masa depan<br>dengan <em>kode dan kecerdasan.</em>
+                    </h2>
+                    <p class="about-desc reveal-up" data-delay="100">
+                        Halo! Saya <strong>Caesar</strong>, mahasiswa semester 4 Teknik Informatika yang sedang
+                        mendalami dunia <strong>AI Engineering</strong>. Saya percaya teknologi yang baik bukan hanya
+                        yang bekerja dengan benar, tapi juga yang memberikan pengalaman yang bermakna.
+                    </p>
+                    <p class="about-desc reveal-up" data-delay="150">
+                        Saat ini saya fokus mempelajari Large Language Models, RAG architecture, dan membangun aplikasi
+                        AI yang scalable. Di waktu luang, saya mengerjakan <strong>Absolute Cinema</strong> — aplikasi
+                        rekomendasi film berbasis AI.
+                    </p>
+                    <div class="about-stats reveal-up" data-delay="200">
+                        <div class="stat-item">
+                            <span class="stat-num">4+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">5+</span>
+                            <span class="stat-label">Languages</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">&#8734;</span>
+                            <span class="stat-label">Curiosity</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-cards-col">
+                    <div class="info-card reveal-left" data-delay="100">
+                        <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="info-body">
+                            <h4>Pendidikan</h4>
+                            <p>S1 Teknik Informatika</p>
+                            <span class="info-meta">Semester 4 - Aktif</span>
+                        </div>
+                    </div>
+                    <div class="info-card reveal-left" data-delay="200">
+                        <div class="info-icon"><i class="fas fa-brain"></i></div>
+                        <div class="info-body">
+                            <h4>Fokus Utama</h4>
+                            <p>AI Engineering & LLMs</p>
+                            <span class="info-meta">Sedang dipelajari</span>
+                        </div>
+                    </div>
+                    <div class="info-card reveal-left" data-delay="300">
+                        <div class="info-icon"><i class="fas fa-building"></i></div>
+                        <div class="info-body">
+                            <h4>Karsa Digital</h4>
+                            <p>Co-founder & Developer</p>
+                            <span class="info-meta">Digital Agency - UMKM</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-    <main class="relative z-10 w-full pt-16 bg-surface/80 min-h-[calc(100vh-144px)]">
-        <div class="flex flex-col w-full">
-            <!-- 1. HERO SECTION -->
-            <section id="hero"
-                class="w-full max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-3xl lg:py-space-4xl flex flex-col justify-between min-h-[calc(100vh-64px)]">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl lg:gap-space-2xl items-center my-auto">
-                    <!-- Left Hero Column -->
-                    <div class="lg:col-span-7 flex flex-col items-start space-y-space-lg">
-                        <div
-                            class="reveal-line stagger-1 hover-elevate flex items-center space-x-space-xs bg-surface-container px-space-sm py-space-2xs rounded cursor-default">
-                            <span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
-                            <span
-                                class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-                                Informatics Student · Developer · AI Enthusiast
-                            </span>
-                        </div>
-                        <h1
-                            class="reveal-line stagger-2 font-display text-display lg:text-[68px] lg:leading-[76px] text-on-surface tracking-tight">
-                            Building useful things with code.
-                        </h1>
-                        <p
-                            class="reveal-line stagger-3 font-body-lg text-body-lg text-on-surface-variant max-w-container-prose leading-relaxed">
-                            I'm M. Caesar Rayvha Ul Haque, an Informatics student at UIN Sunan Gunung Djati Bandung who
-                            enjoys turning ideas into simple, useful, and meaningful digital experiences through
-                            software and applied artificial intelligence.</p>
-                        <div class="reveal-line stagger-4 flex flex-wrap items-center gap-space-md pt-space-xs">
-                            <a class="btn-glow inline-flex items-center space-x-space-xs bg-primary text-on-primary px-space-lg py-space-sm rounded font-headline-sm text-body-md hover:bg-secondary transition-all duration-300 group shadow-sm"
-                                href="#projects">
-                                <span class="">View my work</span>
-                                <span
-                                    class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1.5">arrow_forward</span>
-                            </a>
-                            <a class="hover-elevate inline-flex items-center text-on-surface font-body-md text-body-md hover:text-secondary px-space-md py-space-sm rounded bg-surface/60 border border-surface-variant/40 hover:border-secondary/40 transition-all duration-200"
-                                href="#about">
-                                About me
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Right Hero Column -->
-                    <div class="lg:col-span-5 flex flex-col items-start lg:items-end w-full">
-                        <div class="relative w-full max-w-md">
-                            <div
-                                class="reveal-scale stagger-2 overflow-hidden bg-surface-container-high rounded p-2 bg-surface-container shadow-sm hover-elevate-card img-zoom-container">
-                                <img alt="Authentic portrait photograph of M. Caesar Rayvha Ul Haque, Informatics student at UIN Sunan Gunung Djati Bandung"
-                                    class="w-full h-auto aspect-[3/4] object-cover rounded filter contrast-[1.02]"
-                                    src="./img/foto_rey.jpg">
-                            </div>
-                            <div
-                                class="reveal-line stagger-3 mt-space-md w-full bg-surface-container-low p-space-md rounded flex items-center space-x-space-sm shadow-sm hover-elevate cursor-default">
-                                <span class="relative flex h-2.5 w-2.5 shrink-0">
-                                    <span
-                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
-                                </span>
-                                <div class="flex flex-col min-w-0">
-                                    <span
-                                        class="font-label-caps text-label-caps uppercase text-on-surface-variant">Current
-                                        Status</span>
-                                    <span class="font-body-sm text-body-sm text-on-surface truncate">Full-Stack
-                                        Development + AI Exploration</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Scroll Indicator -->
-                <div
-                    class="pt-space-xl flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps tracking-widest uppercase reveal-line stagger-5">
-                    <div class="flex items-center space-x-space-xs">
-                        <span class="material-symbols-outlined text-[16px] animate-bounce">south</span>
-                        <a class="hover:text-on-surface transition-colors" href="#about">Scroll to explore</a>
-                    </div>
-                    <span class="text-on-surface-variant/60 hidden sm:inline">Bandung, ID · UTC+7</span>
-                </div>
-            </section>
-            <!-- 2. ABOUT SECTION -->
-            <section class="w-full bg-surface-container-low/90 py-space-3xl lg:py-space-4xl backdrop-blur-[2px]"
-                id="about">
-                <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl lg:gap-space-2xl">
-                        <div class="lg:col-span-4 flex flex-col items-start space-y-space-sm">
-                            <span
-                                class="reveal-line stagger-1 font-label-caps text-label-caps text-secondary tracking-widest uppercase">01
-                                —
-                                About</span>
-                            <h2 class="reveal-line stagger-2 font-headline-lg text-headline-lg text-on-surface">A little
-                                about me.</h2>
-                            <div class="reveal-line stagger-3 w-12 h-0.5 bg-surface-variant mt-space-sm"></div>
-                        </div>
-                        <div class="lg:col-span-8 flex flex-col space-y-space-xl">
-                            <p
-                                class="font-body-lg text-body-lg text-on-surface leading-relaxed max-w-container-prose reveal-line stagger-2">
-                                I'm M. Caesar Rayvha Ul Haque, an Informatics student at UIN Sunan Gunung Djati Bandung
-                                who enjoys learning by building. I started with programming fundamentals and gradually
-                                became interested in web development, AI, and creating applications that can genuinely
-                                help people navigate their daily routines with clarity.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg pt-space-xs">
-                                <div
-                                    class="bg-surface p-space-lg rounded shadow-sm flex flex-col space-y-space-md hover-elevate-card reveal-scale stagger-2">
-                                    <div class="flex items-center space-x-space-xs text-secondary">
-                                        <span class="material-symbols-outlined text-[20px]">architecture</span>
-                                        <h3
-                                            class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface">
-                                            What I Focus On</h3>
-                                    </div>
-                                    <ul class="space-y-space-sm text-body-md font-body-md text-on-surface-variant">
-                                        <li class="flex items-start space-x-space-xs"><span
-                                                class="text-secondary font-headline-sm">·</span><span class="">Studying
-                                                Informatics at UIN Sunan Gunung Djati Bandung with focus on system
-                                                software.</span></li>
-                                        <li class="flex items-start space-x-space-xs">
-                                            <span class="text-secondary font-headline-sm">·</span>
-                                            <span class="">Learning Full-Stack Development &amp; modern
-                                                architectures.</span>
-                                        </li>
-                                        <li class="flex items-start space-x-space-xs">
-                                            <span class="text-secondary font-headline-sm">·</span>
-                                            <span class="">Exploring Applied AI &amp; agentic reasoning
-                                                workflows.</span>
-                                        </li>
-                                        <li class="flex items-start space-x-space-xs">
-                                            <span class="text-secondary font-headline-sm">·</span>
-                                            <span class="">Building personal products and open-source
-                                                experiments.</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div
-                                    class="bg-surface p-space-lg rounded shadow-sm flex flex-col justify-between space-y-space-md hover-elevate-card reveal-scale stagger-3">
-                                    <div class="flex items-center space-x-space-xs text-secondary">
-                                        <span class="material-symbols-outlined text-[20px]">info</span>
-                                        <h3
-                                            class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface">
-                                            Context &amp; Logistics</h3>
-                                    </div>
-                                    <div class="space-y-space-md text-body-sm font-body-sm">
-                                        <div>
-                                            <p
-                                                class="text-on-surface-variant font-label-caps text-label-caps uppercase tracking-wider">
-                                                Base Location</p>
-                                            <p class="text-on-surface font-body-md text-body-md mt-0.5">Bandung,
-                                                Indonesia (WIB / UTC+7)</p>
-                                        </div>
-                                        <div>
-                                            <p
-                                                class="text-on-surface-variant font-label-caps text-label-caps uppercase tracking-wider">
-                                                Primary Track</p>
-                                            <p class="text-on-surface font-body-md text-body-md mt-0.5">Informatics
-                                                &amp; Software Engineering</p>
-                                        </div>
-                                        <div>
-                                            <p
-                                                class="text-on-surface-variant font-label-caps text-label-caps uppercase tracking-wider">
-                                                Availability</p>
-                                            <p class="text-on-surface font-body-md text-body-md mt-0.5">Summer 2026
-                                                Internships &amp; Selected Collaborations</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- 3. SELECTED PROJECTS SECTION -->
-            <section class="w-full py-space-3xl lg:py-space-4xl" id="projects">
-                <div
-                    class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex flex-col space-y-space-2xl">
-                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-                        <div class="flex flex-col space-y-space-xs">
-                            <span
-                                class="reveal-line stagger-1 font-label-caps text-label-caps text-secondary tracking-widest uppercase">02
-                                —
-                                Selected Work</span>
-                            <h2 class="reveal-line stagger-2 font-headline-lg text-headline-lg text-on-surface">Things
-                                I've built.</h2>
-                        </div>
-                        <p class="reveal-line stagger-3 font-body-md text-body-md text-on-surface-variant max-w-sm">
-                            A collection of systems, experiments, and software tools engineered with care and deliberate
-                            attention to utility.
-                        </p>
-                    </div>
-                    <!-- Featured Project 01: Full-Width Hero Card -->
-                    <div
-                        class="group bg-surface-container-low rounded overflow-hidden shadow-sm hover-elevate-card reveal-scale stagger-1">
-                        <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
-                            <div class="lg:col-span-7 overflow-hidden bg-surface-container img-zoom-container">
-                                <img alt="Personal Finance Tracker web interface mock"
-                                    class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-                                    src="https://lh3.googleusercontent.com/aida/AEtjO1UXrsDKtsfdwSbNDFOwmjT9e2U_kgVLYcyd7VH-dHORVLJh0oOq5GFoQu93QzdrHwu9KlbkZKdbr9Bv79Gpf9IaAcqshJ8tIK924hqZdOfxd5n9cM10Ov-0noEysemCS1X2smcJuzRCDGABOLkpbwkJmwfqHQHP4eiE41xo70c2Kg4DPht0yqBna6yIGdSi5-5ygRNbu0A40rJ5aAx_JOk9GNZnIQtKPQrO6HRWIH0C6Njfc3hVVfJIxBUQ">
-                            </div>
-                            <div
-                                class="lg:col-span-5 p-space-lg lg:p-space-xl flex flex-col justify-between h-full space-y-space-lg">
-                                <div class="flex flex-col space-y-space-sm">
-                                    <div
-                                        class="reveal-line stagger-1 flex items-center justify-between text-on-surface-variant">
-                                        <span
-                                            class="font-label-caps text-label-caps tracking-widest text-secondary font-bold">01
-                                            / FEATURED</span>
-                                        <span
-                                            class="font-code-inline text-code-inline text-on-surface-variant">2025</span>
-                                    </div>
-                                    <h3
-                                        class="reveal-line stagger-2 font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">
-                                        Personal Finance Tracker
-                                    </h3>
-                                    <p
-                                        class="reveal-line stagger-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                                        A simple application for tracking daily expenses, recurring income, and monthly
-                                        financial habits with calm, clear visual summaries and offline data resilience.
-                                    </p>
-                                </div>
-                                <div class="flex flex-col space-y-space-md">
-                                    <div class="reveal-line stagger-4 flex flex-wrap gap-space-2xs">
-                                        <span
-                                            class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">React</span>
-                                        <span
-                                            class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">Tailwind
-                                            CSS</span>
-                                        <span
-                                            class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">Node.js</span>
-                                        <span
-                                            class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">SQLite</span>
-                                        <span
-                                            class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">Recharts</span>
-                                    </div>
-                                    <div class="reveal-line stagger-5">
-                                        <a class="hover-elevate inline-flex items-center space-x-space-xs font-headline-sm text-body-md text-on-surface hover:text-secondary py-1 px-2 rounded group/btn"
-                                            href="#contact">
-                                            <span class="">View project</span>
-                                            <span
-                                                class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover/btn:translate-x-1.5">arrow_forward</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 02 & 03: Asymmetric Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
-                        <!-- Project 02 -->
-                        <div
-                            class="group bg-surface-container-low rounded p-space-lg lg:p-space-xl flex flex-col justify-between shadow-sm hover-elevate-card reveal-scale stagger-2">
-                            <div class="flex flex-col space-y-space-md">
-                                <div
-                                    class="reveal-line stagger-1 flex items-center justify-between text-on-surface-variant">
-                                    <span
-                                        class="font-label-caps text-label-caps tracking-widest text-secondary font-bold">02</span>
-                                    <span class="font-code-inline text-code-inline text-on-surface-variant">2025</span>
-                                </div>
-                                <h3
-                                    class="reveal-line stagger-2 font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">
-                                    FABBIS Tournament Hub
-                                </h3>
-                                <p
-                                    class="reveal-line stagger-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                                    A digital platform and tournament management system for university basketball
-                                    competitions, schedules, dynamic seed brackets, and organizational announcements.
-                                </p>
-                            </div>
-                            <div class="flex flex-col space-y-space-md pt-space-lg">
-                                <div class="reveal-line stagger-4 flex flex-wrap gap-space-2xs">
-                                    <span
-                                        class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">Next.js</span>
-                                    <span
-                                        class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">TypeScript</span>
-                                    <span
-                                        class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">PostgreSQL</span>
-                                    <span
-                                        class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">Prisma</span>
-                                </div>
-                                <div class="reveal-line stagger-5">
-                                    <a class="hover-elevate inline-flex items-center space-x-space-xs font-headline-sm text-body-md text-on-surface hover:text-secondary py-1 px-2 rounded group/btn"
-                                        href="#contact">
-                                        <span class="">View case study</span>
-                                        <span
-                                            class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover/btn:translate-x-1.5">arrow_forward</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project 03 -->
-                        <div
-                            class="group bg-surface-container-low rounded p-space-lg lg:p-space-xl flex flex-col justify-between shadow-sm hover-elevate-card reveal-scale stagger-3">
-                            <div class="flex flex-col space-y-space-md">
-                                <div
-                                    class="reveal-line stagger-1 flex items-center justify-between text-on-surface-variant">
-                                    <span
-                                        class="font-label-caps text-label-caps tracking-widest text-secondary font-bold">03</span>
-                                    <span class="font-code-inline text-code-inline text-on-surface-variant">2026</span>
-                                </div>
-                                <h3
-                                    class="reveal-line stagger-2 font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">
-                                    AI Content Pipeline
-                                </h3>
-                                <p
-                                    class="reveal-line stagger-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                                    An exploration of AI-assisted visual content generation, prompt engineering
-                                    pipelines, and semantic vector indexing for localized student storytelling
-                                    workflows.
-                                </p>
-                            </div>
-                            <div class="flex flex-col space-y-space-md pt-space-lg">
-                                <div class="reveal-line stagger-4 flex flex-wrap gap-space-2xs">
-                                    <span
-                                        class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">Python</span>
-                                    <span
-                                        class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">LLM
-                                        APIs</span>
-                                    <span
-                                        class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">Streamlit</span>
-                                    <span
-                                        class="tech-badge px-space-xs py-0.5 rounded bg-surface font-code-inline text-[12px] text-on-surface-variant">Vector
-                                        DB</span>
-                                </div>
-                                <div class="reveal-line stagger-5">
-                                    <a class="hover-elevate inline-flex items-center space-x-space-xs font-headline-sm text-body-md text-on-surface hover:text-secondary py-1 px-2 rounded group/btn"
-                                        href="#contact">
-                                        <span class="">Explore experiment</span>
-                                        <span
-                                            class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover/btn:translate-x-1.5">arrow_forward</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- 4. SKILLS SECTION -->
-            <section class="w-full bg-surface-container-low/90 py-space-3xl lg:py-space-4xl backdrop-blur-[2px]"
-                id="skills">
-                <div
-                    class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex flex-col space-y-space-2xl">
-                    <div class="flex flex-col space-y-space-xs">
-                        <span
-                            class="reveal-line stagger-1 font-label-caps text-label-caps text-secondary tracking-widest uppercase">03
-                            —
-                            Skills</span>
-                        <h2 class="reveal-line stagger-2 font-headline-lg text-headline-lg text-on-surface">Tools I use
-                            to build.</h2>
-                        <p class="reveal-line stagger-3 font-body-md text-body-md text-on-surface-variant max-w-prose">
-                            Honest competencies acquired through academic coursework, self-driven research, and daily
-                            shipping.
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
-                        <!-- Frontend -->
-                        <div
-                            class="bg-surface p-space-lg rounded shadow-sm flex flex-col justify-between space-y-space-lg hover-elevate-card reveal-scale stagger-1">
-                            <div class="flex flex-col space-y-space-xs">
-                                <span
-                                    class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">01
-                                    / Presentation</span>
-                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Frontend</h3>
-                            </div>
-                            <div class="flex flex-wrap gap-space-2xs">
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">HTML5
-                                    &amp; CSS3</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">JavaScript
-                                    (ES6+)</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">React</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Tailwind
-                                    CSS</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Responsive
-                                    UI</span>
-                            </div>
-                        </div>
-                        <!-- Programming & CS -->
-                        <div
-                            class="bg-surface p-space-lg rounded shadow-sm flex flex-col justify-between space-y-space-lg hover-elevate-card reveal-scale stagger-2">
-                            <div class="flex flex-col space-y-space-xs">
-                                <span
-                                    class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">02
-                                    / Core Logic</span>
-                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Programming &amp; CS</h3>
-                            </div>
-                            <div class="flex flex-wrap gap-space-2xs">
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Java</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">C++</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Python</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Data
-                                    Structures</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Algorithms</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">OOP
-                                    Principles</span>
-                            </div>
-                        </div>
-                        <!-- Tools & Workflow -->
-                        <div
-                            class="bg-surface p-space-lg rounded shadow-sm flex flex-col justify-between space-y-space-lg hover-elevate-card reveal-scale stagger-3">
-                            <div class="flex flex-col space-y-space-xs">
-                                <span
-                                    class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">03
-                                    / Environment</span>
-                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Tools &amp; Workflow</h3>
-                            </div>
-                            <div class="flex flex-wrap gap-space-2xs">
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Git</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">GitHub</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">VS
-                                    Code</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Postman</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Linux
-                                    Shell</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Vercel</span>
-                            </div>
-                        </div>
-                        <!-- AI Systems -->
-                        <div
-                            class="bg-surface p-space-lg rounded shadow-sm flex flex-col justify-between space-y-space-lg hover-elevate-card reveal-scale stagger-4">
-                            <div class="flex flex-col space-y-space-xs">
-                                <span
-                                    class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">04
-                                    / Emerging</span>
-                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Artificial Intelligence
-                                </h3>
-                            </div>
-                            <div class="flex flex-wrap gap-space-2xs">
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">AI
-                                    APIs</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Prompt
-                                    Engineering</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">AI-Assisted
-                                    Dev</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Vector
-                                    Embeddings</span>
-                                <span
-                                    class="tech-badge px-2.5 py-1 bg-surface-container font-body-sm text-body-sm text-on-surface rounded">Context
-                                    Architectures</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- 5. JOURNEY SECTION -->
-            <section class="w-full py-space-3xl lg:py-space-4xl" id="journey">
-                <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
-                        <div class="lg:col-span-4 flex flex-col space-y-space-xs">
-                            <span
-                                class="reveal-line stagger-1 font-label-caps text-label-caps text-secondary tracking-widest uppercase">04
-                                —
-                                Journey</span>
-                            <h2 class="reveal-line stagger-2 font-headline-lg text-headline-lg text-on-surface">Still
-                                learning.<br>Still
-                                building.</h2>
-                            <p
-                                class="reveal-line stagger-3 font-body-md text-body-md text-on-surface-variant pt-space-sm max-w-sm">
-                                A chronological timeline of milestones, academic foundations, and engineering growth.
-                            </p>
-                        </div>
-                        <div class="lg:col-span-8 flex flex-col space-y-space-xl relative pl-space-md md:pl-space-xl">
-                            <!-- Timeline Item 2026 -->
-                            <div
-                                class="reveal-line stagger-1 relative flex flex-col space-y-space-xs group hover-elevate-card p-space-md -ml-space-md rounded bg-surface-container-low/50">
-                                <div class="reveal-line stagger-1 flex items-center space-x-space-sm">
-                                    <span class="font-code-inline text-code-inline text-secondary font-bold">2026</span>
-                                    <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                                    <span
-                                        class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Current
-                                        Horizon</span>
-                                </div>
-                                <h3 class="reveal-line stagger-2 font-headline-sm text-headline-sm text-on-surface">
-                                    Full-Stack &amp; AI
-                                    Development</h3>
-                                <p
-                                    class="reveal-line stagger-3 font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-container-prose">
-                                    Exploring modern web application frameworks, API design, React state workflows, and
-                                    practical AI orchestration. Focusing heavily on shipping polished, resilient
-                                    end-to-end systems that solve practical pain points.
-                                </p>
-                            </div>
-                            <div class="w-full h-px bg-surface-variant"></div>
-                            <!-- Timeline Item 2025 -->
-                            <div
-                                class="reveal-line stagger-2 relative flex flex-col space-y-space-xs group hover-elevate-card p-space-md -ml-space-md rounded bg-surface-container-low/50">
-                                <div class="reveal-line stagger-1 flex items-center space-x-space-sm">
-                                    <span
-                                        class="font-code-inline text-code-inline text-on-surface-variant font-medium">2025</span>
-                                    <span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
-                                    <span
-                                        class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Academic
-                                        Depth</span>
-                                </div>
-                                <h3 class="reveal-line stagger-2 font-headline-sm text-headline-sm text-on-surface">
-                                    Informatics &amp; Software
-                                    Engineering</h3>
-                                <p
-                                    class="reveal-line stagger-3 font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-container-prose">
-                                    Started university studies in Informatics at UIN Sunan Gunung Djati Bandung. Wrote
-                                    my initial lines of software, explored command line tools, and uncovered a genuine
-                                    obsession with crafting human-friendly software from fundamental logic.</p>
-                            </div>
-                            <div class="w-full h-px bg-surface-variant"></div>
-                            <!-- Timeline Item 2024 -->
-                            <div
-                                class="reveal-line stagger-3 relative flex flex-col space-y-space-xs group hover-elevate-card p-space-md -ml-space-md rounded bg-surface-container-low/50">
-                                <div class="reveal-line stagger-1 flex items-center space-x-space-sm">
-                                    <span
-                                        class="font-code-inline text-code-inline text-on-surface-variant font-medium">2024</span>
-                                    <span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
-                                    <span
-                                        class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Origin</span>
-                                </div>
-                                <h3 class="reveal-line stagger-2 font-headline-sm text-headline-sm text-on-surface">The
-                                    Beginning</h3>
-                                <p
-                                    class="reveal-line stagger-3 font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-container-prose">
-                                    Started university studies in Informatics. Wrote my initial lines of software,
-                                    explored command line tools, and uncovered a genuine obsession with crafting
-                                    human-friendly software from fundamental logic.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- 5. CONTACT SECTION (RENUMBERED FROM 06) -->
-            <section class="w-full py-space-3xl lg:py-space-4xl" id="contact">
-                <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
-                    <div
-                        class="bg-surface-container rounded p-space-xl lg:p-space-3xl shadow-sm flex flex-col items-center text-center space-y-space-xl hover-elevate-card">
-                        <div class="flex flex-col items-center space-y-space-sm max-w-container-prose">
-                            <span
-                                class="reveal-line stagger-1 font-label-caps text-label-caps text-secondary tracking-widest uppercase">05
-                                —
-                                Contact</span>
-                            <h2
-                                class="reveal-line stagger-2 font-display text-display lg:text-[52px] text-on-surface tracking-tight">
-                                Let's build something meaningful.
-                            </h2>
-                            <p
-                                class="reveal-line stagger-3 font-body-lg text-body-lg text-on-surface-variant pt-space-xs">
-                                Have an idea, project, or collaboration in mind? I'm always eager to exchange ideas with
-                                fellow builders, teams, and research groups.
-                            </p>
-                        </div>
-                        <div class="reveal-line stagger-4 flex flex-col sm:flex-row items-center gap-space-md">
-                            <button id="open-contact-modal-btn" type="button"
-                                class="btn-glow inline-flex items-center space-x-space-xs bg-primary text-on-primary px-space-xl py-space-md rounded font-headline-sm text-body-md hover:bg-secondary transition-all duration-300 group shadow-sm cursor-pointer">
-                                <span class="">Get in touch</span>
-                                <span
-                                    class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">mail</span>
-                            </button>
-                            <div
-                                class="hover-elevate flex items-center space-x-space-xs px-space-md py-space-sm bg-surface rounded text-on-surface-variant font-body-sm text-body-sm shadow-sm cursor-default">
-                                <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                                <span class="">Available for Summer 2026 Internships</span>
-                            </div>
-                        </div>
-                        <div
-                            class="reveal-line stagger-5 pt-space-lg border-t border-surface-variant w-full max-w-md flex flex-wrap items-center justify-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
-                            <a class="tech-badge px-3.5 py-1.5 rounded bg-surface hover:text-secondary font-medium transition-all"
-                                href="https://github.com/reyrayvha" rel="noopener noreferrer" target="_blank">GitHub</a>
-                            <span class="text-outline-variant">•</span>
-                            <a class="tech-badge px-3.5 py-1.5 rounded bg-surface hover:text-secondary font-medium transition-all"
-                                href="https://www.linkedin.com/in/m-caesar-rayvha-ul-haque-317269378/"
-                                rel="noopener noreferrer" target="_blank">LinkedIn</a>
-                            <span class="text-outline-variant">•</span>
-                            <a class="tech-badge px-3.5 py-1.5 rounded bg-surface hover:text-secondary font-medium transition-all"
-                                href="https://www.instagram.com/reyrayvhaa/" rel="noopener noreferrer"
-                                target="_blank">Instagram</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-    </main>
-    <footer class="w-full bg-surface-container-low border-t border-surface-variant relative z-10">
-        <div
-            class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-2xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
-            <div class="flex flex-col gap-space-2xs text-center md:text-left">
-                <p class="font-body-sm text-body-sm text-on-surface">© 2026 M. Caesar Rayvha Ul Haque — Building useful
-                    things with code</p>
-                <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-                    Architectural Minimalism · Applied AI &amp; Systems</p>
+    </section>
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-label reveal-fade">
+                <span class="label-line"></span> Skills & Stack
             </div>
-            <nav
-                class="flex flex-wrap items-center justify-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
-                <a class="tech-badge py-0.5 px-2.5 rounded bg-surface-container hover:text-secondary transition-all"
-                    href="https://github.com/reyrayvha" rel="noopener noreferrer" target="_blank">GitHub</a><span
-                    class="text-outline-variant text-[10px]">•</span><a
-                    class="tech-badge py-0.5 px-2.5 rounded bg-surface-container hover:text-secondary transition-all"
-                    href="https://www.linkedin.com/in/m-caesar-rayvha-ul-haque-317269378/" rel="noopener noreferrer"
-                    target="_blank">LinkedIn</a><span class="text-outline-variant text-[10px]">•</span><a
-                    class="tech-badge py-0.5 px-2.5 rounded bg-surface-container hover:text-secondary transition-all"
-                    href="https://www.instagram.com/reyrayvhaa/" rel="noopener noreferrer"
-                    target="_blank">Instagram</a><span class="text-outline-variant text-[10px]">•</span><a
-                    class="tech-badge py-0.5 px-2.5 rounded bg-surface-container hover:text-secondary transition-all"
-                    href="mailto:reyrayvha@gmail.com">Email</a>
-            </nav>
+            <h2 class="section-title centered reveal-up">Tools & <em>teknologi</em> yang aku gunakan</h2>
+            <div class="skills-grid">
+                <div class="skill-category reveal-up" data-delay="0">
+                    <div class="skill-cat-header">
+                        <i class="fas fa-robot cat-icon"></i>
+                        <h3>AI & Machine Learning</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag hot">Python</span>
+                        <span class="skill-tag hot">LLMs / GPT</span>
+                        <span class="skill-tag">RAG</span>
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">NLP</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up" data-delay="100">
+                    <div class="skill-cat-header">
+                        <i class="fas fa-code cat-icon"></i>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag hot">JavaScript</span>
+                        <span class="skill-tag hot">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up" data-delay="200">
+                    <div class="skill-cat-header">
+                        <i class="fas fa-globe cat-icon"></i>
+                        <h3>Web Development</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag hot">HTML & CSS</span>
+                        <span class="skill-tag hot">JavaScript</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up" data-delay="300">
+                    <div class="skill-cat-header">
+                        <i class="fas fa-cube cat-icon"></i>
+                        <h3>Other</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">OpenGL</span>
+                        <span class="skill-tag">3D Graphics</span>
+                        <span class="skill-tag">GLUT</span>
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-journey reveal-up" data-delay="100">
+                <h3 class="journey-title"><i class="fas fa-route"></i> AI Engineering Journey</h3>
+                <div class="timeline">
+                    <div class="tl-item done">
+                        <div class="tl-dot"><i class="fas fa-check"></i></div>
+                        <div class="tl-content">
+                            <span class="tl-phase">Phase 1</span>
+                            <h4>Python & Data Fundamentals</h4>
+                            <p>NumPy, Pandas, Data Manipulation</p>
+                        </div>
+                    </div>
+                    <div class="tl-item done">
+                        <div class="tl-dot"><i class="fas fa-check"></i></div>
+                        <div class="tl-content">
+                            <span class="tl-phase">Phase 2</span>
+                            <h4>Prompt Engineering & LLMs</h4>
+                            <p>GPT, Gemini, Prompt Techniques</p>
+                        </div>
+                    </div>
+                    <div class="tl-item active">
+                        <div class="tl-dot"><i class="fas fa-spinner fa-spin"></i></div>
+                        <div class="tl-content">
+                            <span class="tl-phase">Phase 3 - Now</span>
+                            <h4>RAG & LangChain</h4>
+                            <p>Retrieval Augmented Generation, Agents</p>
+                        </div>
+                    </div>
+                    <div class="tl-item upcoming">
+                        <div class="tl-dot"><i class="fas fa-lock"></i></div>
+                        <div class="tl-content">
+                            <span class="tl-phase">Phase 4</span>
+                            <h4>Fine-tuning & MLOps</h4>
+                            <p>Model Deployment, Production AI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-label reveal-fade">
+                <span class="label-line"></span> Projects
+            </div>
+            <h2 class="section-title centered reveal-up">Yang sudah aku <em>bangun.</em></h2>
+            <div class="featured-project reveal-up" data-delay="100">
+                <div class="fp-content">
+                    <div class="fp-label">&#11088; Featured Project</div>
+                    <h3 class="fp-title">Absolute Cinema</h3>
+                    <p class="fp-desc">
+                        Aplikasi rekomendasi film berbasis AI yang menganalisis preferensi genre, mood, dan histori
+                        penonton untuk memberikan rekomendasi personal yang akurat. Dibangun dengan engine AI yang
+                        memahami konteks sinematik.
+                    </p>
+                    <div class="fp-tags">
+                        <span class="fp-tag">Python</span>
+                        <span class="fp-tag">AI / ML</span>
+                        <span class="fp-tag">Recommendation Engine</span>
+                        <span class="fp-tag">NLP</span>
+                    </div>
+                    <div class="cinema-widget">
+                        <div class="widget-header">
+                            <i class="fas fa-film"></i>
+                            <span>Try the Recommendation Engine</span>
+                        </div>
+                        <div class="widget-body">
+                            <div class="widget-form">
+                                <div class="form-group-mini">
+                                    <label>Pilih Genre:</label>
+                                    <div class="genre-chips" id="genreChips">
+                                        <button class="genre-chip active" data-genre="Sci-Fi">&#128640; Sci-Fi</button>
+                                        <button class="genre-chip" data-genre="Thriller">&#127917; Thriller</button>
+                                        <button class="genre-chip" data-genre="Drama">&#10024; Drama</button>
+                                        <button class="genre-chip" data-genre="Action">&#9889; Action</button>
+                                        <button class="genre-chip" data-genre="Mystery">&#128269; Mystery</button>
+                                    </div>
+                                </div>
+                                <div class="form-group-mini">
+                                    <label>Mood sekarang:</label>
+                                    <div class="mood-chips" id="moodChips">
+                                        <button class="mood-chip active" data-mood="Mind-Bending">&#129327;
+                                            Mind-Bending</button>
+                                        <button class="mood-chip" data-mood="Feel-Good">&#128522; Feel-Good</button>
+                                        <button class="mood-chip" data-mood="Intense">&#128293; Intense</button>
+                                        <button class="mood-chip" data-mood="Relaxed">&#128524; Relaxed</button>
+                                    </div>
+                                </div>
+                                <button class="btn-recommend" id="getRecommendation">
+                                    <i class="fas fa-wand-magic-sparkles"></i> Get AI Recommendation
+                                </button>
+                            </div>
+                            <div class="widget-result" id="widgetResult">
+                                <div class="result-placeholder">
+                                    <i class="fas fa-robot"></i>
+                                    <p>Pilih genre dan mood, lalu klik tombol di atas!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fp-visual">
+                    <div class="fp-mockup">
+                        <div class="mockup-bar">
+                            <span class="m-dot red"></span>
+                            <span class="m-dot yellow"></span>
+                            <span class="m-dot green"></span>
+                            <span class="m-url">absolute-cinema.app</span>
+                        </div>
+                        <div class="mockup-screen">
+                            <div class="ms-header">
+                                <div class="ms-logo"><i class="fas fa-film"></i> Absolute Cinema</div>
+                            </div>
+                            <div class="ms-banner">
+                                <div class="ms-banner-text">
+                                    <span class="ms-badge">AI Pick</span>
+                                    <h4>Interstellar</h4>
+                                    <p>98% Match - Sci-Fi</p>
+                                    <button class="ms-btn">Watch Now</button>
+                                </div>
+                                <div class="ms-poster-gradient"></div>
+                            </div>
+                            <div class="ms-grid">
+                                <div class="ms-card">
+                                    <div class="ms-card-color c1"></div>
+                                    <p>Dune</p><span>&#11088; 9.3</span>
+                                </div>
+                                <div class="ms-card">
+                                    <div class="ms-card-color c2"></div>
+                                    <p>Arrival</p><span>&#11088; 9.1</span>
+                                </div>
+                                <div class="ms-card">
+                                    <div class="ms-card-color c3"></div>
+                                    <p>Ex Machina</p><span>&#11088; 8.9</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card reveal-up" data-delay="0">
+                    <div class="pc-icon"><i class="fas fa-store"></i></div>
+                    <div class="pc-body">
+                        <div class="pc-tags">
+                            <span class="pc-tag">Web Dev</span>
+                            <span class="pc-tag">Business</span>
+                        </div>
+                        <h3 class="pc-title">Karsa Digital Agency</h3>
+                        <p class="pc-desc">Co-founder dari digital agency yang memberdayakan UMKM skala kecil dan
+                            menengah dengan layanan web dan aplikasi custom.</p>
+                    </div>
+                    <div class="pc-stack">
+                        <span>JavaScript</span><span>Management</span><span>Web Dev</span>
+                    </div>
+                </div>
+                <div class="project-card reveal-up" data-delay="100">
+                    <div class="pc-icon"><i class="fas fa-cash-register"></i></div>
+                    <div class="pc-body">
+                        <div class="pc-tags">
+                            <span class="pc-tag">Web App</span>
+                            <span class="pc-tag">Database</span>
+                        </div>
+                        <h3 class="pc-title">Web-based POS System</h3>
+                        <p class="pc-desc">Aplikasi Point of Sale berbasis web dengan manajemen inventaris, logika
+                            transaksi real-time, dan integrasi database yang efisien.</p>
+                    </div>
+                    <div class="pc-stack">
+                        <span>JavaScript</span><span>MySQL</span><span>PHP</span>
+                    </div>
+                </div>
+                <div class="project-card reveal-up" data-delay="200">
+                    <div class="pc-icon"><i class="fas fa-cube"></i></div>
+                    <div class="pc-body">
+                        <div class="pc-tags">
+                            <span class="pc-tag">Graphics</span>
+                            <span class="pc-tag">3D</span>
+                        </div>
+                        <h3 class="pc-title">3D Graphics Engine</h3>
+                        <p class="pc-desc">Implementasi transformasi geometris 3D menggunakan OpenGL dan GLUT untuk
+                            pemodelan grafis dan simulasi visual interaktif.</p>
+                    </div>
+                    <div class="pc-stack">
+                        <span>C++</span><span>OpenGL</span><span>GLUT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-label reveal-fade">
+                <span class="label-line"></span> Contact
+            </div>
+            <div class="contact-grid">
+                <div class="contact-text">
+                    <h2 class="section-title reveal-up">Punya ide menarik?<br><em>Ayo diskusi!</em></h2>
+                    <p class="contact-desc reveal-up" data-delay="100">
+                        Saya terbuka untuk kolaborasi, project freelance, diskusi AI, atau sekadar ngobrol tentang
+                        teknologi. Jangan ragu untuk reach out!
+                    </p>
+                    <div class="contact-links reveal-up" data-delay="150">
+                        <a href="mailto:reyrayvha@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>reyrayvha@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/reyrayvha" target="_blank" class="contact-link">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/reyrayvha</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/m-caesar-rayvha-ul-haque-317269378/" target="_blank"
+                            class="contact-link">
+                            <i class="fab fa-linkedin"></i>
+                            <span>linkedin.com/in/m-caesar-rayvha-ul-haque</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrap reveal-up" data-delay="200">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="name">Nama</label>
+                                <input type="text" id="name" name="name" placeholder="Nama kamu..." required>
+                            </div>
+                            <div class="form-field">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="email@kamu.com" required>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="subject">Topik</label>
+                            <input type="text" id="subject" name="subject"
+                                placeholder="Collaboration / Project / AI Discussion...">
+                        </div>
+                        <div class="form-field">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="Ceritakan ide atau pertanyaanmu..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span class="btn-text">Kirim Pesan <i class="fas fa-paper-plane"></i></span>
+                            <span class="btn-loading hidden"><i class="fas fa-spinner fa-spin"></i> Mengirim...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="footer-logo">reyrayvha<span>.</span></span>
+                <p>AI Engineer & Software Developer</p>
+            </div>
+            <div class="footer-nav">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-copy">
+                <p>&#169; 2026 M. Caesar Rayvha Ul Haque. Crafted with &#9749; and curiosity.</p>
+            </div>
         </div>
     </footer>
-
-    <!-- Interactive Contact Modal Dialog -->
-    <div id="contact-modal"
-        class="fixed inset-0 z-[99999] hidden items-center justify-center p-4 bg-on-surface/50 backdrop-blur-sm transition-opacity duration-300 opacity-0"
-        role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div id="contact-modal-backdrop" class="absolute inset-0 cursor-pointer"></div>
-        <div id="contact-modal-card"
-            class="relative bg-surface rounded-xl shadow-2xl border border-surface-variant max-w-lg w-full p-6 sm:p-8 z-10 transform scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto">
-            <!-- Modal Header -->
-            <div class="flex items-start justify-between pb-3 border-b border-surface-variant">
-                <div class="flex flex-col space-y-1">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
-                        <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Get In
-                            Touch</span>
-                    </div>
-                    <h3 id="modal-title" class="font-headline-md text-headline-md text-on-surface">Kirim Pesan</h3>
-                    <p class="font-body-sm text-body-sm text-on-surface-variant">
-                        Pesan akan diteruskan langsung ke <span
-                            class="text-secondary font-medium font-code-inline">reyrayvha@gmail.com</span>
-                    </p>
-                </div>
-                <button id="close-contact-modal-btn" type="button" aria-label="Tutup modal kontak"
-                    class="hover-elevate w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all">
-                    <span class="material-symbols-outlined text-[20px]">close</span>
-                </button>
-            </div>
-
-            <!-- Contact Form -->
-            <form id="contact-form" class="mt-5 flex flex-col space-y-4">
-                <div>
-                    <label for="contact-name"
-                        class="block font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider mb-1">
-                        Nama Lengkap <span class="text-secondary">*</span>
-                    </label>
-                    <input type="text" id="contact-name" name="name" required placeholder="Masukkan nama Anda..."
-                        class="w-full bg-surface-container px-3.5 py-2.5 rounded border border-outline-variant/60 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none text-on-surface font-body-md transition-all">
-                </div>
-
-                <div>
-                    <label for="contact-email"
-                        class="block font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider mb-1">
-                        Email Anda <span class="text-secondary">*</span>
-                    </label>
-                    <input type="email" id="contact-email" name="email" required placeholder="nama@email.com"
-                        class="w-full bg-surface-container px-3.5 py-2.5 rounded border border-outline-variant/60 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none text-on-surface font-body-md transition-all">
-                </div>
-
-                <div>
-                    <label for="contact-message"
-                        class="block font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider mb-1">
-                        Pesan <span class="text-secondary">*</span>
-                    </label>
-                    <textarea id="contact-message" name="message" required rows="4"
-                        placeholder="Tuliskan pesan, ide proyek, atau pertanyaan Anda di sini..."
-                        class="w-full bg-surface-container px-3.5 py-2.5 rounded border border-outline-variant/60 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none text-on-surface font-body-md transition-all resize-none"></textarea>
-                </div>
-
-                <!-- Notification status message -->
-                <div id="contact-status-msg" class="hidden p-3 rounded text-body-sm font-body-sm"></div>
-
-                <button type="submit" id="submit-contact-btn"
-                    class="btn-glow w-full mt-2 inline-flex items-center justify-center space-x-2 bg-primary text-on-primary py-3 px-4 rounded font-headline-sm text-body-md hover:bg-secondary transition-all duration-300 shadow-sm cursor-pointer">
-                    <span class="material-symbols-outlined text-[18px]">send</span>
-                    <span>Kirim Pesan ke reyrayvha@gmail.com</span>
-                </button>
-
-                <!-- Location and copy email button -->
-                <div
-                    class="pt-3 border-t border-surface-variant flex flex-col sm:flex-row items-center justify-between text-body-sm font-body-sm text-on-surface-variant gap-2">
-                    <span class="flex items-center space-x-1.5">
-                        <span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
-                        <span>Bandung, Indonesia</span>
-                    </span>
-                    <button type="button" id="copy-email-btn"
-                        class="hover-elevate inline-flex items-center space-x-1 text-xs py-1 px-2.5 rounded bg-surface-container hover:text-secondary transition-colors cursor-pointer">
-                        <span class="material-symbols-outlined text-[14px]">content_copy</span>
-                        <span id="copy-email-text">Salin reyrayvha@gmail.com</span>
-                    </button>
-                </div>
-            </form>
-        </div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle toast-icon"></i>
+        <span class="toast-msg" id="toastMsg">Pesan terkirim!</span>
     </div>
-
-    <!-- Scripts System -->
-    <script>
-        // === 1. SMOOTH SCROLL WITH FIXED HEADER OFFSET ===
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    return;
-                }
-                if (targetId && targetId.length > 1) {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        const navHeight = 64; // height of fixed header
-                        const elementTop = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementTop + window.pageYOffset - navHeight - 16;
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        // === 2. SCROLL PROGRESS BAR & ACTIVE NAV HIGHLIGHT ===
-        const progressBar = document.getElementById('scroll-progress');
-        const navLinks = document.querySelectorAll('header nav a[href^="#"]');
-        const trackedSections = document.querySelectorAll('section[id]');
-
-        function updateScrollIndicators() {
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-            // Progress Bar
-            if (progressBar && docHeight > 0) {
-                const progressPercent = Math.min(100, Math.max(0, (scrollY / docHeight) * 100));
-                progressBar.style.width = progressPercent + '%';
-            }
-
-            // Active Nav Highlight
-            let currentSectionId = '';
-            trackedSections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                const sectionHeight = section.offsetHeight;
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    currentSectionId = section.getAttribute('id');
-                }
-            });
-
-            if (currentSectionId) {
-                navLinks.forEach(link => {
-                    const href = link.getAttribute('href').replace('#', '');
-                    if (href === currentSectionId) {
-                        link.classList.add('nav-active');
-                    } else {
-                        link.classList.remove('nav-active');
-                    }
-                });
-            }
-        }
-
-        // === 3. ZERO-LAG GPU-ACCELERATED BACKGROUND SCROLL ANIMATION ===
-        (function initScrollBackground() {
-            const layer1 = document.getElementById('parallax-layer-1');
-            const layer2 = document.getElementById('parallax-layer-2');
-            const canvas = document.getElementById('bg-particles-canvas');
-            if (!layer1 || !canvas) return;
-
-            const ctx = canvas.getContext('2d');
-            let width = 0;
-            let height = 0;
-            let dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-            function resizeCanvas() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width * dpr;
-                canvas.height = height * dpr;
-                ctx.scale(dpr, dpr);
-            }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas, { passive: true });
-
-            // Floating Stardust Particles
-            const PARTICLE_COUNT = 36;
-            const particles = [];
-            const colors = [
-                'rgba(157, 66, 37, 0.22)',
-                'rgba(253, 140, 104, 0.18)',
-                'rgba(189, 238, 208, 0.25)',
-                'rgba(118, 120, 114, 0.16)'
-            ];
-
-            for (let i = 0; i < PARTICLE_COUNT; i++) {
-                particles.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    radius: Math.random() * 2.2 + 0.8,
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    vx: (Math.random() - 0.5) * 0.25,
-                    vy: (Math.random() - 0.5) * 0.25,
-                    baseSpeedY: (Math.random() - 0.5) * 0.15,
-                    pulseOffset: Math.random() * Math.PI * 2
-                });
-            }
-
-            // Scroll tracking with smooth Lerp
-            let targetScrollY = window.pageYOffset || 0;
-            let currentScrollY = targetScrollY;
-            let lastScrollY = targetScrollY;
-            let scrollVelocity = 0;
-            let isVisible = true;
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            window.addEventListener('scroll', () => {
-                targetScrollY = window.pageYOffset || document.documentElement.scrollTop;
-                updateScrollIndicators();
-            }, { passive: true });
-
-            document.addEventListener('visibilitychange', () => {
-                isVisible = !document.hidden;
-                if (isVisible) requestAnimationFrame(renderLoop);
-            });
-
-            let time = 0;
-            function renderLoop() {
-                if (!isVisible) return;
-
-                const scrollDelta = targetScrollY - currentScrollY;
-                currentScrollY += scrollDelta * 0.085;
-                scrollVelocity = (targetScrollY - lastScrollY) * 0.06;
-                lastScrollY = targetScrollY;
-
-                if (!prefersReducedMotion) {
-                    layer1.style.transform = `translate3d(0, ${-currentScrollY * 0.09}px, 0)`;
-                    layer2.style.transform = `translate3d(0, ${-currentScrollY * 0.2}px, 0)`;
-
-                    ctx.clearRect(0, 0, width, height);
-                    time += 0.012;
-
-                    for (let i = 0; i < PARTICLE_COUNT; i++) {
-                        const p = particles[i];
-                        p.x += p.vx + Math.sin(time + p.pulseOffset) * 0.15;
-                        p.y += p.vy + p.baseSpeedY - scrollVelocity * 0.5;
-
-                        if (p.x < -10) p.x = width + 10;
-                        if (p.x > width + 10) p.x = -10;
-                        if (p.y < -10) p.y = height + 10;
-                        if (p.y > height + 10) p.y = -10;
-
-                        const alphaPulse = 0.75 + Math.sin(time * 1.5 + p.pulseOffset) * 0.25;
-
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                        ctx.fillStyle = p.color;
-                        ctx.globalAlpha = alphaPulse;
-                        ctx.fill();
-                    }
-                    ctx.globalAlpha = 1.0;
-                }
-
-                requestAnimationFrame(renderLoop);
-            }
-
-            renderLoop();
-            updateScrollIndicators();
-        })();
-
-        // === 4. PROGRESSIVE LINE-BY-LINE SCROLL REVEAL ===
-        document.addEventListener('DOMContentLoaded', () => {
-            const revealSelectors = '.reveal-line, .reveal-on-scroll, .reveal-fade-left, .reveal-fade-right, .reveal-scale';
-            const reveals = document.querySelectorAll(revealSelectors);
-
-            if ('IntersectionObserver' in window) {
-                const revealObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-revealed');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, {
-                    threshold: 0.08,
-                    rootMargin: '0px 0px -30px 0px'
-                });
-
-                reveals.forEach(el => revealObserver.observe(el));
-            } else {
-                reveals.forEach(el => el.classList.add('is-revealed'));
-            }
-        });
-
-        // === 5. INTERACTIVE CONTACT MODAL & EMAIL HANDLER ===
-        (function initContactModal() {
-            const openBtn = document.getElementById('open-contact-modal-btn');
-            const modal = document.getElementById('contact-modal');
-            const backdrop = document.getElementById('contact-modal-backdrop');
-            const closeBtn = document.getElementById('close-contact-modal-btn');
-            const card = document.getElementById('contact-modal-card');
-            const form = document.getElementById('contact-form');
-            const statusMsg = document.getElementById('contact-status-msg');
-            const copyEmailBtn = document.getElementById('copy-email-btn');
-            const copyEmailText = document.getElementById('copy-email-text');
-
-            if (!modal || !openBtn) return;
-
-            function openModal() {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                requestAnimationFrame(() => {
-                    modal.classList.remove('opacity-0');
-                    modal.classList.add('opacity-100');
-                    if (card) {
-                        card.classList.remove('scale-95');
-                        card.classList.add('scale-100');
-                    }
-                });
-                document.body.style.overflow = 'hidden';
-                const nameInput = document.getElementById('contact-name');
-                if (nameInput) setTimeout(() => nameInput.focus(), 100);
-            }
-
-            function closeModal() {
-                modal.classList.remove('opacity-100');
-                modal.classList.add('opacity-0');
-                if (card) {
-                    card.classList.remove('scale-100');
-                    card.classList.add('scale-95');
-                }
-                setTimeout(() => {
-                    modal.classList.remove('flex');
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = '';
-                    if (statusMsg) {
-                        statusMsg.className = 'hidden p-3 rounded text-body-sm font-body-sm';
-                        statusMsg.textContent = '';
-                    }
-                }, 280);
-            }
-
-            openBtn.addEventListener('click', openModal);
-            if (closeBtn) closeBtn.addEventListener('click', closeModal);
-            if (backdrop) backdrop.addEventListener('click', closeModal);
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                    closeModal();
-                }
-            });
-
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const name = document.getElementById('contact-name').value.trim();
-                    const email = document.getElementById('contact-email').value.trim();
-                    const message = document.getElementById('contact-message').value.trim();
-
-                    if (!name || !email || !message) return;
-
-                    const subject = `Pesan Portfolio dari ${name}`;
-                    const body = `Halo Reyrayvha,\n\nNama: ${name}\nEmail Pengirim: ${email}\nLokasi Pengirim: (Website Portfolio)\n\nPesan:\n${message}\n\n---\nPesan dikirim melalui formulir kontak portfolio https://github.com/reyrayvha`;
-
-                    const mailtoUrl = `mailto:reyrayvha@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-                    if (statusMsg) {
-                        statusMsg.className = 'p-3.5 rounded-lg text-body-sm font-body-sm bg-secondary/10 border border-secondary/20 text-on-surface flex flex-col space-y-1';
-                        statusMsg.innerHTML = `
-                            <span class="font-headline-sm text-secondary font-medium flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-[18px]">mark_email_read</span>
-                                Pesan Siap Dikirim!
-                            </span>
-                            <span>Aplikasi email Anda sedang dibuka untuk mengirim pesan ini ke <strong>reyrayvha@gmail.com</strong>.</span>
-                            <span class="text-xs text-on-surface-variant mt-1">Jika aplikasi email tidak terbuka otomatis, silakan kirim langsung ke <strong>reyrayvha@gmail.com</strong>.</span>
-                        `;
-                        statusMsg.classList.remove('hidden');
-                    }
-
-                    setTimeout(() => {
-                        window.location.href = mailtoUrl;
-                    }, 400);
-                });
-            }
-
-            if (copyEmailBtn) {
-                copyEmailBtn.addEventListener('click', () => {
-                    navigator.clipboard.writeText('reyrayvha@gmail.com').then(() => {
-                        if (copyEmailText) copyEmailText.textContent = 'Tersalin ke clipboard!';
-                        copyEmailBtn.classList.add('text-secondary');
-                        setTimeout(() => {
-                            if (copyEmailText) copyEmailText.textContent = 'Salin reyrayvha@gmail.com';
-                            copyEmailBtn.classList.remove('text-secondary');
-                        }, 2500);
-                    }).catch(() => {
-                        window.location.href = 'mailto:reyrayvha@gmail.com';
-                    });
-                });
-            }
-        })();
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
